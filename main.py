@@ -1,15 +1,26 @@
+from pathlib import Path
 from src.train import train_decision_tree
 from src.predict import predict_species
-from pathlib import Path
+
+def ask_user_for_inputs():
+    print("\n=== Classificação de nova amostra ===")
+    sepal_length = float(input("Comprimento da sépala (cm): "))
+    sepal_width  = float(input("Largura da sépala (cm): "))
+    petal_length = float(input("Comprimento da pétala (cm): "))
+    petal_width  = float(input("Largura da pétala (cm): "))
+    return sepal_length, sepal_width, petal_length, petal_width
+
 
 def main():
-    # Treinar o modelo
-    clf, X_test, y_test, y_pred = train_decision_tree()
+    train_decision_tree()
 
-    # Exemplo de predição com novos dados
+    values = ask_user_for_inputs()
+    
     model_path = Path("models/decision_tree_model.joblib")
-    result = predict_species(model_path, 5.1, 3.5, 1.4, 0.2)
-    print("Predicted species (int):", result)
+    species = predict_species(model_path, *values)
+
+    print(f"\n>>> A espécie prevista é: {species}.\n")
+
 
 if __name__ == "__main__":
     main()
