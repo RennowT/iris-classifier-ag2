@@ -14,7 +14,6 @@ def predict_species(model_path: Path, sepal_length: float, sepal_width: float,
     
     clf = joblib.load(model_path)
 
-    # Criamos um DataFrame com nomes de colunas para evitar warnings
     X_new = pd.DataFrame([{
         "sepal_length_cm": sepal_length,
         "sepal_width_cm": sepal_width,

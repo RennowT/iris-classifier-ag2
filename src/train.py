@@ -5,7 +5,10 @@ from src.preprocess import load_iris_dataset, convert_species_to_int
 from pathlib import Path
 import joblib
 
-def train_decision_tree(save_model_path: Path = Path("models/decision_tree_model.joblib")):
+def train_decision_tree(
+    save_model_path: Path = Path("models/decision_tree_model.joblib")
+    ):
+    
     # Carregar e preparar dados
     df = load_iris_dataset()
     df = convert_species_to_int(df)
@@ -14,7 +17,12 @@ def train_decision_tree(save_model_path: Path = Path("models/decision_tree_model
     y = df["species"]
 
     # Particionar em treino e teste
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, 
+        test_size=0.2, 
+        random_state=42, 
+        stratify=y
+        )
 
     # Instanciar e treinar
     clf = DecisionTreeClassifier(random_state=42)

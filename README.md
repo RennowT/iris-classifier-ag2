@@ -5,6 +5,14 @@ O projeto realiza pré-processamento, treinamento de modelo, avaliação e permi
 
 ---
 
+## Vídeo da Apresentação
+
+Assista à apresentação completa do projeto no YouTube (não listado):
+
+🔗 **https://youtu.be/Xd5rYz9hfGU**
+
+---
+
 ## Algoritmo de Classificação Escolhido
 
 O algoritmo selecionado para este projeto é a **Árvore de Decisão (Decision Tree)**.
